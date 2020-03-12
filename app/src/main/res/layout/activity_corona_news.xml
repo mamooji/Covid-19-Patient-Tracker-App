@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".CoronaNews">
 
+
+    <TextView
+        android:id="@+id/tv_corona"
+        android:layout_width="89dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/lbl_corona_news"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_rss"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
