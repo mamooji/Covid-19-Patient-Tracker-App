@@ -1,8 +1,37 @@
 package com.example.dbmarch11;
 
-public class UserDetails {
+public class UserDetails
+{
     private String name,address,mobileNo,profession;
     int userId;
+
+//    commented out for safety
+//    updated details
+    private String gender,corona,ageRange;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getCorona() {
+        return corona;
+    }
+
+    public void setCorona(String corona) {
+        this.corona = corona;
+    }
+
+    public String getAgeRange() {
+        return ageRange;
+    }
+
+    public void setAgeGroup(String ageRange) {
+        this.ageRange = ageRange;
+    }
 
     public String getName()
     {

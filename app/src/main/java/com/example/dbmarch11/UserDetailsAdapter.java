@@ -1,4 +1,6 @@
 package com.example.dbmarch11;
+
+//import statements
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,31 +10,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
-
 import java.util.List;
 
 public class UserDetailsAdapter extends RecyclerView.Adapter<UserDetailsAdapter.UserViewHolder>
 {
+
+    //variable declarations
     List<UserDetails> userDetailsList;
     Context context;
     UserDatabaseHelper dbHelper;
     SQLiteDatabase db;
+
+
     public UserDetailsAdapter(List<UserDetails> userDetailsList)
     {
         this.userDetailsList = userDetailsList;
     }
+
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View iteView = inflater.inflate(R.layout.list_item, parent, false);
-        UserViewHolder viewHolder = new UserViewHolder(iteView);
+        View itemView = inflater.inflate(R.layout.list_item, parent, false);
+        UserViewHolder viewHolder = new UserViewHolder(itemView);
         return viewHolder;
     }
     @Override
@@ -43,6 +47,13 @@ public class UserDetailsAdapter extends RecyclerView.Adapter<UserDetailsAdapter.
         holder.tvAddress.setText(userDetails.getAddress());
         holder.tvPhone.setText(userDetails.getMobileNo());
         holder.tvProfession.setText(userDetails.getProfession());
+
+        //updated fields
+        holder.tvGender.setText(userDetails.getGender());
+        holder.tvCorona.setText(userDetails.getCorona());
+        holder.tvAgeRange.setText(userDetails.getAgeRange());
+
+
         holder.ivMenu.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -91,6 +102,10 @@ public class UserDetailsAdapter extends RecyclerView.Adapter<UserDetailsAdapter.
     public class UserViewHolder extends RecyclerView.ViewHolder
     {
         TextView tvName, tvAddress, tvPhone, tvProfession;
+
+        //updated fields
+        TextView tvGender, tvCorona, tvAgeRange;
+
         ImageView ivMenu;
 
         public UserViewHolder(View itemView)
@@ -100,6 +115,12 @@ public class UserDetailsAdapter extends RecyclerView.Adapter<UserDetailsAdapter.
             tvAddress = (TextView) itemView.findViewById(R.id.tv_address);
             tvPhone = (TextView) itemView.findViewById(R.id.tv_phone);
             tvProfession = (TextView) itemView.findViewById(R.id.tv_profession);
+
+            //updated fields
+            tvGender = (TextView) itemView.findViewById(R.id.tv_gender);
+            tvCorona = (TextView) itemView.findViewById(R.id.tv_corona);
+            tvAgeRange = (TextView) itemView.findViewById(R.id.tv_ageRange);
+
             ivMenu = (ImageView) itemView.findViewById(R.id.iv_menu);
         }
     }

@@ -14,5 +14,9 @@ public final class UserDatabaseContract
         public static final String COLUMN_NAME_COL2 = "address";
         public static final String COLUMN_NAME_COL3 = "phone_no";
         public static final String COLUMN_NAME_COL4 = "profession";
+        public static final String COLUMN_NAME_COL5 = "gender";
+        public static final String COLUMN_NAME_COL6 = "corona";
+        public static final String COLUMN_NAME_COL7 = "ageRange";
+
     }
 }

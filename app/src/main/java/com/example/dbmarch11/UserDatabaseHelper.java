@@ -1,16 +1,16 @@
 package com.example.dbmarch11;
 
-
+//import statements
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
+
 
 public class UserDatabaseHelper extends SQLiteOpenHelper
 {
 
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "UserRegistration.db";
 
     public UserDatabaseHelper(Context context)
@@ -43,7 +43,11 @@ public class UserDatabaseHelper extends SQLiteOpenHelper
             UserDatabase.COLUMN_NAME_COL1 + " text," +
             UserDatabase.COLUMN_NAME_COL2 + " text," +
             UserDatabase.COLUMN_NAME_COL3 + " text," +
-            UserDatabase.COLUMN_NAME_COL4 + " text)";
+            UserDatabase.COLUMN_NAME_COL4 + " text," +
+            UserDatabase.COLUMN_NAME_COL5 + " text," +
+            UserDatabase.COLUMN_NAME_COL6 + " text," +
+            UserDatabase.COLUMN_NAME_COL7 + " text)";
+
     private static final String DELETE_USER_TABLE = "DROP TABLE IF EXISTS " + UserDatabase.TABLE_NAME;
 
 }

@@ -19,6 +19,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
 {
 
+
+    //variable declarations
     UserDatabaseHelper dbHelper;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter userAdapter;
@@ -34,14 +36,18 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         dbHelper = new UserDatabaseHelper(this);
         db = dbHelper.getReadableDatabase();
+
+        //view/button declarations
         recyclerView = (RecyclerView) findViewById(R.id.rv_users);
         btnRegister = (Button) findViewById(R.id.bt_register);
 
+        //register button listener
         btnRegister.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
+                //change activity
                 Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
                 startActivity(intent);
                 finish();
@@ -62,6 +68,11 @@ public class MainActivity extends AppCompatActivity
                 userDetailsItem.setAddress(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL2)));
                 userDetailsItem.setMobileNo(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL3)));
                 userDetailsItem.setProfession(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL4)));
+                //updated items for db
+                userDetailsItem.setGender(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL5)));
+                userDetailsItem.setCorona(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL6)));
+                userDetailsItem.setAgeGroup(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL7)));
+                //
                 userDetailsList.add(userDetailsItem);
             }
         }
