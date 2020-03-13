@@ -9,27 +9,33 @@ public class UserDetails
 //    updated details
     private String gender,corona,ageRange;
 
-    public String getGender() {
+    public String getGender()
+    {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(String gender)
+    {
         this.gender = gender;
     }
 
-    public String getCorona() {
+    public String getCorona()
+    {
         return corona;
     }
 
-    public void setCorona(String corona) {
+    public void setCorona(String corona)
+    {
         this.corona = corona;
     }
 
-    public String getAgeRange() {
+    public String getAgeRange()
+    {
         return ageRange;
     }
 
-    public void setAgeGroup(String ageRange) {
+    public void setAgeGroup(String ageRange)
+    {
         this.ageRange = ageRange;
     }
 

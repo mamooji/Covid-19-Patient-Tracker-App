@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Covid-19 Tracker</string>
+    <string name="app_name">Covid-19 Patient Tracker</string>
 
     <string name="lbl_corona">Corona???</string>
     <string name="lbl_name">Name</string>
