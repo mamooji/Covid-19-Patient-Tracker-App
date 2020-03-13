@@ -5,10 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Xml;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -30,7 +34,6 @@ public class CoronaNews extends AppCompatActivity {
 
     // Private widget access
     private SwipeRefreshLayout swipeRefreshLayout;
-    private RecyclerView rvRSS;
     private ListView lvRSS;
 
     // Internal abstract modelling
@@ -43,11 +46,7 @@ public class CoronaNews extends AppCompatActivity {
 
         // Set widget & layout access
         this.swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
-        //this.rvRSS = (RecyclerView) findViewById(R.id.rv_rss);
         this.lvRSS = (ListView) findViewById(R.id.lv_rss);
-
-        // Set a linear layout for our recycler view
-        //this.rvRSS.setLayoutManager(new LinearLayoutManager(this));
 
         // Setting the refresh listener
         this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -59,7 +58,22 @@ public class CoronaNews extends AppCompatActivity {
             }
         });
 
+        // Execute the refresh for the first time
         new GetFeedAsyncTask().execute((Void) null);
+
+
+        // Set click listener for each news story in the ListView
+        this.lvRSS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                String link = RSSFeedModelList.get(position).link;
+                Uri viewUri = Uri.parse(link);
+
+                Intent networkIntent = new Intent(Intent.ACTION_VIEW, viewUri);
+                startActivity(networkIntent);
+            }
+        });
     }
 
 
@@ -73,12 +87,15 @@ public class CoronaNews extends AppCompatActivity {
         try {
             XmlPullParser xmlPullParser = Xml.newPullParser();
             xmlPullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            //xmlPullParser.setInput(inputStream, null);
 
             // New way!!! Pass in a string instead...
             xmlPullParser.setInput(new StringReader(entireXmlString));
 
+
             xmlPullParser.nextTag();
+
+            // XML pull parser workload:
+            // Logic to parse each item in the XML document
             while (xmlPullParser.next() != XmlPullParser.END_DOCUMENT) {
                 int eventType = xmlPullParser.getEventType();
 
@@ -142,6 +159,9 @@ public class CoronaNews extends AppCompatActivity {
 
 
 
+    /*  CLASS   : GetFeedAsyncTask
+     *  PURPOSE : AsyncTask to pull RSS Feed from RSS_URL.
+     */
     private class GetFeedAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
         // URL to pull RSS feed from
@@ -160,19 +180,6 @@ public class CoronaNews extends AppCompatActivity {
             try {
                 url = new URL(GetFeedAsyncTask.RSS_URL);
                 InputStream inputStream = url.openConnection().getInputStream();
-
-                // DEBUG !!! What does this file look like???????
-                // byte[] buffer = new byte[inputStream.available()];
-                // inputStream.read(buffer);
-
-                // inputStream.read(buffer, 0, 16384);     // Read stream into byte buffer
-                /*
-                File targetFile = new File("fuckingfile.txt");
-                OutputStream outStream = new FileOutputStream(targetFile);
-                outStream.write(buffer);
-
-                 */
-
 
                 byte[] data = new byte[256];
                 int endCheck = inputStream.read(data);
@@ -201,6 +208,7 @@ public class CoronaNews extends AppCompatActivity {
 
             return true;
         }
+
 
         @Override
         protected void onPostExecute(Boolean success) {
