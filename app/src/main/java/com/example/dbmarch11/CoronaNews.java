@@ -30,6 +30,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+
+/*  FILE        : CoronaNews.java
+ *  PROJECT     : Mobile A2
+ *  DEVELOPERS  : Mohamed Benzreba, Muhammad Mamooji, Ethan Hoekstra, Jacob Nelson
+ *  DUE DATE    : 14 March 2020
+ *  DESCRIPTION :
+ */
+
+
 public class CoronaNews extends AppCompatActivity {
 
     // Private widget access
