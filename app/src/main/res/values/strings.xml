@@ -16,6 +16,8 @@
 
     <string name="lbl_register">Register</string>
     <string name="lbl_update">Update</string>
+    <string name="lbl_patients">Registered Patients</string>
+    <string name="lbl_patients_reg">Patient Registration</string>
 
     <array name="genderOptions">
         <item>Male</item>
