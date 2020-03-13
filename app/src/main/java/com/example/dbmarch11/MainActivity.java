@@ -88,4 +88,10 @@ public class MainActivity extends AppCompatActivity
         db.close();
         super.onDestroy();
     }
+
+    public void goToCoronaNews(View view) {
+        Intent intent = new Intent(MainActivity.this, CoronaNews.class);
+        startActivity(intent);
+        finish();
+    }
 }

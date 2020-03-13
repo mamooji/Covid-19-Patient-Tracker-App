@@ -19,6 +19,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_corona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="!!!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.324"
+        app:layout_constraintStart_toEndOf="@+id/bt_register"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="goToCoronaNews"/>
+
     <TextView
         android:id="@+id/textView"
         style="?android:textAppearanceLarge"
