@@ -22,6 +22,9 @@ import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//CLASS         : UpdateActivity
+//PURPOSE       : Handles the updating of an existing user within the DB.
 public class UpdateActivity extends AppCompatActivity
 {
 
@@ -45,6 +48,11 @@ public class UpdateActivity extends AppCompatActivity
 
     Button btUpdate;
 
+    //FUNCTION      : onCreate
+    //PARAMETERS    : Bundle savedInstanceState
+    //RETURNS       : void
+    //DESCRIPTION   : Fills all fields with relevant info tied
+    //                the the associated user in the DB.
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

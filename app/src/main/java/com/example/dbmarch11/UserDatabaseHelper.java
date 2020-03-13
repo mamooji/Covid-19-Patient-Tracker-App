@@ -6,7 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 
-
+//CLASS         : UserDatabaseHelper
+//PURPOSE       :
 public class UserDatabaseHelper extends SQLiteOpenHelper
 {
 

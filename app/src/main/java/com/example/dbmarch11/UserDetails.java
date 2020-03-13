@@ -1,5 +1,9 @@
 package com.example.dbmarch11;
 
+
+//CLASS     : UserDetails
+//PURPOSE   : Defines user details and contains setters/getters for
+//            a user.
 public class UserDetails
 {
     private String name,address,mobileNo,profession;

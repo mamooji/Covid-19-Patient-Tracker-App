@@ -16,6 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 
+
+//CLASS         : RegistrationActivity
+//PURPOSE       : Class to run code behind user registration.  Handles
+//                filling of all widgets with appropriate user data from
+//                DB.
 public class RegistrationActivity extends AppCompatActivity
 {
     UserDatabaseHelper dbHelper;
@@ -117,6 +122,11 @@ public class RegistrationActivity extends AppCompatActivity
             }
         });
     }
+
+    //FUNCTION      : onDestroy
+    //PARAMETERS    : void
+    //RETURNS       : void
+    //DESCRIPTION   : Closes the db upon the destruction of the page
     @Override
     protected void onDestroy()
     {

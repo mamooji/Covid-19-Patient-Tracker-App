@@ -15,6 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 import java.util.List;
 
+
+//CLASS         : UserDetailsAdapter
+//PURPOSE       : Handles the cardview/recyclerview.  Updates and deletes popups for
+//                each card and ensure each view has the correct data from the DB.
 public class UserDetailsAdapter extends RecyclerView.Adapter<UserDetailsAdapter.UserViewHolder>
 {
 
@@ -24,12 +28,20 @@ public class UserDetailsAdapter extends RecyclerView.Adapter<UserDetailsAdapter.
     UserDatabaseHelper dbHelper;
     SQLiteDatabase db;
 
-
+    //NAME          : UserDetailsAdapter
+    //PARAMETERS    : List<UserDetails> userDetailsList
+    //RETURNS       : none
+    //DESCRIPTION   : Sets the user detail list
     public UserDetailsAdapter(List<UserDetails> userDetailsList)
     {
         this.userDetailsList = userDetailsList;
     }
 
+
+    //NAME          : onCreateViewHolder
+    //PARAMETERS    : ViewGroup parent, int viewType
+    //RETURNS       : UserViewHolder
+    //DESCRIPTION   : 
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {

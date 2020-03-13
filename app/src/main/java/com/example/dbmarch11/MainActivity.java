@@ -16,6 +16,11 @@ import java.util.List;
 //import android.support.v7.widget.LinearLayoutManager;
 /////
 
+
+//CLASS         : MainActivity
+//PURPOSE       : The landing page class for the application.  Handles
+//                filling the page with relevant data queried directly
+//                from the DB using the db helper class and recyclerview.
 public class MainActivity extends AppCompatActivity
 {
 
@@ -29,6 +34,11 @@ public class MainActivity extends AppCompatActivity
     List<UserDetails> userDetailsList;
     SQLiteDatabase db;
 
+
+    //FUNCTION          : onCreate
+    //PARAMETERS        : Bundle savedInstanceState
+    //RETURNS           : void
+    //DESCRIPTION       : Handles the proper filling of widgets upon being instantiated.
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

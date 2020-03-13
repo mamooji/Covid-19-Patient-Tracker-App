@@ -2,6 +2,9 @@ package com.example.dbmarch11;
 
 import android.provider.BaseColumns;
 
+//CLASS         : UserDatabaseContract
+//PURPOSE       : Defines structure of the database.
+//                Contains all column names and types.
 public final class UserDatabaseContract
 {
     private UserDatabaseContract()
