@@ -88,8 +88,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_pro"
         android:entries="@array/genderOptions"
-        android:textColor="@android:color/white"
-        android:background="@color/cardview_dark_background"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <Switch
         android:id="@+id/sw_corona"
