@@ -13,13 +13,13 @@ public final class UserDatabaseContract
     public static class UserDatabase implements BaseColumns
     {
         public static final String TABLE_NAME = "user_details";
-        public static final String COLUMN_NAME_COL1 = "name";
-        public static final String COLUMN_NAME_COL2 = "address";
-        public static final String COLUMN_NAME_COL3 = "phone_no";
-        public static final String COLUMN_NAME_COL4 = "profession";
-        public static final String COLUMN_NAME_COL5 = "gender";
-        public static final String COLUMN_NAME_COL6 = "corona";
-        public static final String COLUMN_NAME_COL7 = "ageRange";
+        public static final String COLUMN_NAME = "name";
+        public static final String COLUMN_ADDRESS = "address";
+        public static final String COLUMN_PHONE = "phone_no";
+        public static final String COLUMN_PROF = "profession";
+        public static final String COLUMN_GENDER = "gender";
+        public static final String COLUMN_CORONA = "corona";
+        public static final String COLUMN_AGE = "ageRange";
 
     }
 }

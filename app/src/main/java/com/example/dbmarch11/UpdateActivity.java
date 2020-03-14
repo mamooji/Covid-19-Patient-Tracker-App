@@ -71,12 +71,12 @@ public class UpdateActivity extends AppCompatActivity
         {
             while (c1.moveToNext())
             {
-                upName.setText(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL1)));
-                upAddress.setText(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL2)));
-                upPhone.setText(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL3)));
-                upProfession.setText(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL4)));
-                upGender.setSelection(((ArrayAdapter<String>)upGender.getAdapter()).getPosition(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL5))));
-                String dbString = c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL6));
+                upName.setText(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME)));
+                upAddress.setText(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_ADDRESS)));
+                upPhone.setText(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_PHONE)));
+                upProfession.setText(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_PROF)));
+                upGender.setSelection(((ArrayAdapter<String>)upGender.getAdapter()).getPosition(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_GENDER))));
+                String dbString = c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_CORONA));
                 String ourString = getString(R.string.lbl_corona_pos);
                 if (dbString.equals(ourString))
                 {
@@ -90,7 +90,7 @@ public class UpdateActivity extends AppCompatActivity
                 for (int x = 0; x<numRadioBTN; x++)
                 {
                     RadioButton tmp = (RadioButton) upAgeRange.getChildAt(x);
-                    if ( (tmp.getText().toString().equals((c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL7))))))
+                    if ( (tmp.getText().toString().equals((c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_AGE))))))
                     {
                         tmp.setChecked(true);
                     }
@@ -126,13 +126,13 @@ public class UpdateActivity extends AppCompatActivity
                 }
 
                 ContentValues values = new ContentValues();
-                values.put(UserDatabase.COLUMN_NAME_COL1, name);
-                values.put(UserDatabase.COLUMN_NAME_COL2, address);
-                values.put(UserDatabase.COLUMN_NAME_COL3, phone);
-                values.put(UserDatabase.COLUMN_NAME_COL4, profession);
-                values.put(UserDatabase.COLUMN_NAME_COL5, gender);
-                values.put(UserDatabase.COLUMN_NAME_COL6, corona);
-                values.put(UserDatabase.COLUMN_NAME_COL7, ageRange);
+                values.put(UserDatabase.COLUMN_NAME, name);
+                values.put(UserDatabase.COLUMN_ADDRESS, address);
+                values.put(UserDatabase.COLUMN_PHONE, phone);
+                values.put(UserDatabase.COLUMN_PROF, profession);
+                values.put(UserDatabase.COLUMN_GENDER, gender);
+                values.put(UserDatabase.COLUMN_CORONA, corona);
+                values.put(UserDatabase.COLUMN_AGE, ageRange);
 
                 int updateId = db.update(UserDatabase.TABLE_NAME, values, UserDatabase._ID + " = " + rowId, null);
                 if (updateId != -1)

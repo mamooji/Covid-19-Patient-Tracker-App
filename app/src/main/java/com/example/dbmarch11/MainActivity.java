@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity
             {
                 UserDetails userDetailsItem = new UserDetails();
                 userDetailsItem.setUserId(c1.getInt(c1.getColumnIndex(UserDatabase._ID)));
-                userDetailsItem.setName(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL1)));
-                userDetailsItem.setAddress(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL2)));
-                userDetailsItem.setMobileNo(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL3)));
-                userDetailsItem.setProfession(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL4)));
-                userDetailsItem.setGender(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL5)));
-                userDetailsItem.setCorona(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL6)));
-                userDetailsItem.setAgeGroup(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL7)));
+                userDetailsItem.setName(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME)));
+                userDetailsItem.setAddress(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_ADDRESS)));
+                userDetailsItem.setMobileNo(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_PHONE)));
+                userDetailsItem.setProfession(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_PROF)));
+                userDetailsItem.setGender(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_GENDER)));
+                userDetailsItem.setCorona(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_CORONA)));
+                userDetailsItem.setAgeGroup(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_AGE)));
                 userDetailsList.add(userDetailsItem);
             }
         }

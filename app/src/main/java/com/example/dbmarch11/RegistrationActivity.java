@@ -78,13 +78,13 @@ public class RegistrationActivity extends AppCompatActivity
 
                 ContentValues values = new ContentValues();
 
-                values.put(UserDatabase.COLUMN_NAME_COL1, name);
-                values.put(UserDatabase.COLUMN_NAME_COL2, address);
-                values.put(UserDatabase.COLUMN_NAME_COL3, phone);
-                values.put(UserDatabase.COLUMN_NAME_COL4, profession);
-                values.put(UserDatabase.COLUMN_NAME_COL5, gender);
-                values.put(UserDatabase.COLUMN_NAME_COL6, corona);
-                values.put(UserDatabase.COLUMN_NAME_COL7, ageRange);
+                values.put(UserDatabase.COLUMN_NAME, name);
+                values.put(UserDatabase.COLUMN_ADDRESS, address);
+                values.put(UserDatabase.COLUMN_PHONE, phone);
+                values.put(UserDatabase.COLUMN_PROF, profession);
+                values.put(UserDatabase.COLUMN_GENDER, gender);
+                values.put(UserDatabase.COLUMN_CORONA, corona);
+                values.put(UserDatabase.COLUMN_AGE, ageRange);
 
                 long rowId = db.insert(UserDatabase.TABLE_NAME, null, values);
 
