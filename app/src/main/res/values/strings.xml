@@ -26,7 +26,7 @@
     <!--    Spinner Labels-->
     <array name="genderOptions">
         <item>Male</item>
-        <item>Anything Else</item>
+        <item>Female</item>
     </array>
 
     <!--    Application TextON/TextOFF for Switch-->
