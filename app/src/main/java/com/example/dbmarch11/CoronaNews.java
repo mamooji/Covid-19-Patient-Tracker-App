@@ -23,12 +23,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 
+
 /*  FILE        : CoronaNews.java
  *  PROJECT     : Mobile A2
  *  DEVELOPERS  : Mohamed Benzreba, Muhammad Mamooji, Ethan Hoekstra, Jacob Nelson
  *  DUE DATE    : 14 March 2020
- *  DESCRIPTION :
+ *  DESCRIPTION : Logic supporting the CoronaNews Activity.
  */
+
+
 public class CoronaNews extends AppCompatActivity
 {
 
@@ -39,6 +42,16 @@ public class CoronaNews extends AppCompatActivity
     // Internal abstract modelling
     private ArrayList<RSSFeedModel> RSSFeedModelList;
 
+
+
+    /*  FUNCTION    : onCreate()
+     *  DESCRIPTION : Event handler for when the Activity is instantiated (i.e. navigated to).
+     *      Performs tasks like setting private widget access, setting event listeners on widgets
+     *      that require them, etc. etc.
+     *  PARAMETERS  :
+     *      Bundle  savedInstanceState  : Bundle needed by the activity to start
+     *  RETURNS     : void
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -74,6 +87,7 @@ public class CoronaNews extends AppCompatActivity
                 String link = RSSFeedModelList.get(position).link;
                 Uri viewUri = Uri.parse(link);
 
+                // Go to the browser
                 Intent networkIntent = new Intent(Intent.ACTION_VIEW, viewUri);
                 startActivity(networkIntent);
             }
@@ -81,6 +95,16 @@ public class CoronaNews extends AppCompatActivity
     }
 
 
+
+    /*  FUNCTION    : parseFeed()
+     *  DESCRIPTION : Given an XML string, creates a list of RSSFeedModels containing each article
+     *      found in the XML file (see helper class RSSFeedModel.java for logical structure).
+     *  PARAMETERS  :
+     *      String  entireXMLString : XML file of <item>s that should contain at least a <title>,
+     *                              <description>, and <link>.
+     *  RETURNS     :
+     *      ArrayList<RSSFeedModel> : RSSFeedModels parsed from the XML file.
+     */
     public ArrayList<RSSFeedModel> parseFeed(String entireXmlString)
     {
         String title = null;
@@ -187,12 +211,26 @@ public class CoronaNews extends AppCompatActivity
         private static final String RSS_URL = "https://rss.cbc.ca/lineup/health.xml";
 
 
+        // FUNCTION : onPreExecute()
+        // SUMMARY  : Sets the refreshing layout to true (UI thread).
         @Override
         protected void onPreExecute()
         {
             swipeRefreshLayout.setRefreshing(true);
         }
 
+
+
+        /*  FUNCTION    : doInBackground()
+         *  DESCRIPTION : Main body for the AsyncTask. Pulls an XML file from the url specified by
+         *      the static constant RSS_URL and builds a string out of it. This string is then
+         *      passed into CoronaNews.parseFeed() to be split into logical RSSFeedModels for later
+         *      viewing in the UI.
+         *  PARAMETERS  :
+         *      Void... voids   : Does not need anything.
+         *  RETURNS     :
+         *      Boolean : True if successful, false if a failure.
+         */
         @Override
         protected Boolean doInBackground(Void... voids)
         {
@@ -234,6 +272,16 @@ public class CoronaNews extends AppCompatActivity
         }
 
 
+
+        /*  FUNCTION    : onPostExecute()
+         *  DESCRIPTION : Runs immediately after doInBackground(), within the UI thread. Sets the
+         *      refreshing layout back to false and connects the adapter to the list of
+         *      RSSFeedModels if doInBackground() was successful; displays a toast notifying a
+         *      connection could not be made with the RSS feed if doInBackground() fails.
+         *  PARAMETERS  :
+         *      Boolean success : True if doInBackground() successful, false otherwise.
+         *  RETURNS     : void
+         */
         @Override
         protected void onPostExecute(Boolean success)
         {
