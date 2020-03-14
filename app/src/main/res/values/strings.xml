@@ -5,7 +5,7 @@
     <string name="lbl_name">Name</string>
     <string name="lbl_phone">Phone Number</string>
     <string name="lbl_address">Address</string>
-    <string name="lbl_prof">Profession</string>
+    <string name="lbl_prof">Health Card Number</string>
     <string name="lbl_child">Child</string>
     <string name="lbl_adult">Adult</string>
     <string name="lbl_senior">Senior</string>
