@@ -11,7 +11,7 @@ import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 public class UserDatabaseHelper extends SQLiteOpenHelper
 {
 
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "UserRegistration.db";
 
     public UserDatabaseHelper(Context context)
