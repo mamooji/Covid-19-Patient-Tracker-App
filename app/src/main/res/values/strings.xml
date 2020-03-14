@@ -24,5 +24,9 @@
         <item>Anything Else</item>
     </array>
 
+
+    <!-- CoronaNews values -->
+    <string name="lbl_corona_news">COVID-19 News</string>
+
 </resources>
 
