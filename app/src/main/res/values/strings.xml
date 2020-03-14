@@ -1,32 +1,41 @@
 <resources>
+    <!--    Application name-->
     <string name="app_name">Covid-19 Patient Tracker</string>
 
-    <string name="lbl_corona">Corona???</string>
+    <!--    Application labels for main activity-->
+    <string name="lbl_patients_reg">Patient Registration</string>
+    <string name="lbl_rss">Virus News</string>
+    <string name="lbl_patients">Registered Patients</string>
+
+    <!--    Application labels for listItem/CardView-->
     <string name="lbl_name">Name</string>
-    <string name="lbl_phone">Phone Number</string>
     <string name="lbl_address">Address</string>
+    <string name="lbl_phone">Phone Number</string>
     <string name="lbl_prof">Health Card Number</string>
+    <string name="lbl_corona">Corona???</string>
+    <string name="lbl_ageGroup">Age Group</string>
+    <string name="lbl_gender">Gender</string>
+
+    <!--    Application Labels/Hints for Update and registration activities-->
     <string name="lbl_child">Child</string>
     <string name="lbl_adult">Adult</string>
     <string name="lbl_senior">Senior</string>
-    <string name="lbl_gender">Gender</string>
-    <string name="lbl_ageGroup">Age Group</string>
-
-
-    <string name="lbl_corona_pos">Corona: Positive</string>
-    <string name="lbl_corona_neg">Corona: Negative</string>
-
     <string name="lbl_register">Register</string>
     <string name="lbl_update">Update</string>
-    <string name="lbl_patients">Registered Patients</string>
-    <string name="lbl_patients_reg">Patient Registration</string>
-    <string name="lbl_rss">Virus News</string>
 
+    <!--    Spinner Labels-->
     <array name="genderOptions">
         <item>Male</item>
         <item>Anything Else</item>
     </array>
 
+    <!--    Application TextON/TextOFF for Switch-->
+    <string name="lbl_corona_pos">Corona: Positive</string>
+    <string name="lbl_corona_neg">Corona: Negative</string>
+
+    <!--    Application Labels for PopupMenu-->
+    <string name="lbl_del">Delete</string>
+    <string name="lbl_up">Update</string>
 
     <!-- CoronaNews values -->
     <string name="lbl_corona_news">COVID-19 News</string>
