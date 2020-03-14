@@ -32,6 +32,11 @@ import java.util.Objects;
  */
 
 
+// Citation:
+// Based on the tutorial provided at:
+// https://www.androidauthority.com/simple-rss-reader-full-tutorial-733245/
+
+
 public class CoronaNews extends AppCompatActivity
 {
 
