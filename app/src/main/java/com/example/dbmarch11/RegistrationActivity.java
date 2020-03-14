@@ -11,11 +11,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
-
 
 //CLASS         : RegistrationActivity
 //PURPOSE       : Class to run code behind user registration.  Handles
@@ -23,23 +20,19 @@ import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 //                DB.
 public class RegistrationActivity extends AppCompatActivity
 {
+
     UserDatabaseHelper dbHelper;
     SQLiteDatabase db;
 
-    String name, address, phone, profession;
-
-    //updated fields
-    String gender, corona, ageRange;
+    String name, address, phone, profession, gender, corona, ageRange;
 
     private EditText etName, etAddress, etPhone, etProfession;
-
-    //updated fields
     private Spinner spGender;
     private Switch swCorona;
     private RadioGroup rgAgeRange;
 
-
     private Button btRegister;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -47,23 +40,18 @@ public class RegistrationActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration_activity);
 
-        //variable declarations
+        //variable declarations to their specific IDs
         dbHelper = new UserDatabaseHelper(this);
         db = dbHelper.getWritableDatabase();
         etName = (EditText) findViewById(R.id.et_name);
         etAddress = (EditText) findViewById(R.id.et_address);
         etPhone = (EditText) findViewById(R.id.et_phone);
         etProfession = (EditText) findViewById(R.id.et_pro);
-
-
-        //updates fields
         spGender = (Spinner) findViewById(R.id.sp_gender);
         swCorona = (Switch) findViewById(R.id.sw_corona);
         rgAgeRange = (RadioGroup) findViewById(R.id.rg_ageRange);
-        //
 
         btRegister = (Button) findViewById(R.id.bt_registration);
-
 
         //register button onClick listener
         btRegister.setOnClickListener(new View.OnClickListener()
@@ -75,10 +63,7 @@ public class RegistrationActivity extends AppCompatActivity
                 address = etAddress.getText().toString();
                 phone = etPhone.getText().toString();
                 profession = etProfession.getText().toString();
-
-                //updated fields
                 gender = spGender.getSelectedItem().toString();
-
                 if (swCorona.isChecked())
                 {
                     corona = swCorona.getTextOn().toString();
@@ -87,11 +72,9 @@ public class RegistrationActivity extends AppCompatActivity
                 {
                     corona = swCorona.getTextOff().toString();
                 }
-
                 int selectedID = rgAgeRange.getCheckedRadioButtonId();
                 RadioButton tmpRadioButton = (RadioButton) findViewById(selectedID);
                 ageRange = tmpRadioButton.getText().toString();
-
 
                 ContentValues values = new ContentValues();
 
@@ -99,8 +82,6 @@ public class RegistrationActivity extends AppCompatActivity
                 values.put(UserDatabase.COLUMN_NAME_COL2, address);
                 values.put(UserDatabase.COLUMN_NAME_COL3, phone);
                 values.put(UserDatabase.COLUMN_NAME_COL4, profession);
-
-                //updated values
                 values.put(UserDatabase.COLUMN_NAME_COL5, gender);
                 values.put(UserDatabase.COLUMN_NAME_COL6, corona);
                 values.put(UserDatabase.COLUMN_NAME_COL7, ageRange);

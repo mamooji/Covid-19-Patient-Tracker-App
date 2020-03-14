@@ -6,15 +6,16 @@ public class RSSFeedModel {
     public String link;
     public String description;
 
-    public RSSFeedModel(String title, String link, String description) {
+    public RSSFeedModel(String title, String link, String description)
+    {
         this.title = title;
         this.link = link;
         this.description = description;
     }
 
-
     @Override
-    public String toString() {
+    public String toString()
+    {
         return this.title;
     }
 

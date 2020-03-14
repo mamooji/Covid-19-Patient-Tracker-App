@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cv_user"
-    android:background="@color/cardview_dark_background"
+    android:background="@color/dark_gray"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -21,10 +21,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="Name"
+            android:text="@string/lbl_name"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/cardview_light_background"/>
+            android:textColor="@color/dark_bg_light_primary_text"/>
 
         <TextView
             android:id="@+id/tv_address"
@@ -32,30 +32,30 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="Address"
+            android:text="@string/lbl_address"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
-            android:textColor="@color/cardview_light_background"/>
+            android:textColor="@color/dark_bg_light_primary_text"/>
 
         <TextView
             android:id="@+id/tv_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:text="PhoneNumber"
+            android:text="@string/lbl_phone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_address"
-            android:textColor="@color/cardview_light_background"/>
+            android:textColor="@color/dark_bg_light_primary_text"/>
 
         <TextView
             android:id="@+id/tv_profession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:text="Profession"
+            android:text="@string/lbl_prof"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_phone"
-            android:textColor="@color/cardview_light_background"/>
+            android:textColor="@color/dark_bg_light_primary_text"/>
 
         <TextView
             android:id="@+id/tv_gender"
@@ -63,33 +63,33 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="46dp"
             android:layout_marginLeft="40dp"
-            android:text="Gender"
+            android:text="@string/lbl_gender"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/cardview_light_background"/>
+            android:textColor="@color/dark_bg_light_primary_text"/>
 
         <TextView
             android:id="@+id/tv_corona"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="Corona"
+            android:text="@string/lbl_corona"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_gender"
-            android:textColor="@color/cardview_light_background"/>
+            android:textColor="@color/dark_bg_light_primary_text"/>
 
         <TextView
             android:id="@+id/tv_ageRange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="Age Group"
+            android:text="@string/lbl_ageGroup"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_corona"
-            android:textColor="@color/cardview_light_background"/>
+            android:textColor="@color/dark_bg_light_primary_text"/>
 
 
         <ImageView

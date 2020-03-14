@@ -12,10 +12,6 @@ import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-////
-//import android.support.v7.widget.LinearLayoutManager;
-/////
-
 
 //CLASS         : MainActivity
 //PURPOSE       : The landing page class for the application.  Handles
@@ -78,11 +74,9 @@ public class MainActivity extends AppCompatActivity
                 userDetailsItem.setAddress(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL2)));
                 userDetailsItem.setMobileNo(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL3)));
                 userDetailsItem.setProfession(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL4)));
-                //updated items for db
                 userDetailsItem.setGender(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL5)));
                 userDetailsItem.setCorona(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL6)));
                 userDetailsItem.setAgeGroup(c1.getString(c1.getColumnIndex(UserDatabase.COLUMN_NAME_COL7)));
-                //
                 userDetailsList.add(userDetailsItem);
             }
         }

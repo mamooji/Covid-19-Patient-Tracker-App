@@ -1,10 +1,5 @@
 package com.example.dbmarch11;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -17,14 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -37,9 +32,8 @@ import java.util.ArrayList;
  *  DUE DATE    : 14 March 2020
  *  DESCRIPTION :
  */
-
-
-public class CoronaNews extends AppCompatActivity {
+public class CoronaNews extends AppCompatActivity
+{
 
     // Private widget access
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -49,7 +43,8 @@ public class CoronaNews extends AppCompatActivity {
     private ArrayList<RSSFeedModel> RSSFeedModelList;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_corona_news);
 
@@ -58,9 +53,11 @@ public class CoronaNews extends AppCompatActivity {
         this.lvRSS = (ListView) findViewById(R.id.lv_rss);
 
         // Setting the refresh listener
-        this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
             @Override
-            public void onRefresh() {
+            public void onRefresh()
+            {
                 // Call the AsyncTask to fetch the RSS feed for us
                 // The AsyncTask will be a private class defined within this activity
                 new GetFeedAsyncTask().execute((Void) null);
@@ -72,7 +69,8 @@ public class CoronaNews extends AppCompatActivity {
 
 
         // Set click listener for each news story in the ListView
-        this.lvRSS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        this.lvRSS.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
@@ -86,7 +84,8 @@ public class CoronaNews extends AppCompatActivity {
     }
 
 
-    public ArrayList<RSSFeedModel> parseFeed(String entireXmlString) {
+    public ArrayList<RSSFeedModel> parseFeed(String entireXmlString)
+    {
         String title = null;
         String link = null;
         String description = null;
@@ -105,7 +104,8 @@ public class CoronaNews extends AppCompatActivity {
 
             // XML pull parser workload:
             // Logic to parse each item in the XML document
-            while (xmlPullParser.next() != XmlPullParser.END_DOCUMENT) {
+            while (xmlPullParser.next() != XmlPullParser.END_DOCUMENT)
+            {
                 int eventType = xmlPullParser.getEventType();
 
                 String name = xmlPullParser.getName();
@@ -113,14 +113,17 @@ public class CoronaNews extends AppCompatActivity {
                     continue;
 
                 if(eventType == XmlPullParser.END_TAG) {
-                    if(name.equalsIgnoreCase("item")) {
+                    if(name.equalsIgnoreCase("item"))
+                    {
                         isItem = false;
                     }
                     continue;
                 }
 
-                if (eventType == XmlPullParser.START_TAG) {
-                    if(name.equalsIgnoreCase("item")) {
+                if (eventType == XmlPullParser.START_TAG)
+                {
+                    if(name.equalsIgnoreCase("item"))
+                    {
                         isItem = true;
                         continue;
                     }
@@ -128,21 +131,29 @@ public class CoronaNews extends AppCompatActivity {
 
                 Log.d("MyXmlParser", "Parsing name ==> " + name);
                 String result = "";
-                if (xmlPullParser.next() == XmlPullParser.TEXT) {
+                if (xmlPullParser.next() == XmlPullParser.TEXT)
+                {
                     result = xmlPullParser.getText();
                     xmlPullParser.nextTag();
                 }
 
-                if (name.equalsIgnoreCase("title")) {
+                if (name.equalsIgnoreCase("title"))
+                {
                     title = result;
-                } else if (name.equalsIgnoreCase("link")) {
+                }
+                else if (name.equalsIgnoreCase("link"))
+                {
                     link = result;
-                } else if (name.equalsIgnoreCase("description")) {
+                }
+                else if (name.equalsIgnoreCase("description"))
+                {
                     description = result;
                 }
 
-                if (title != null && link != null && description != null) {
-                    if(isItem) {
+                if (title != null && link != null && description != null)
+                {
+                    if(isItem)
+                    {
                         RSSFeedModel item = new RSSFeedModel(title, link, description);
                         items.add(item);
                     }
@@ -155,10 +166,12 @@ public class CoronaNews extends AppCompatActivity {
             }
 
         }
-        catch (XmlPullParserException e) {
+        catch (XmlPullParserException e)
+        {
             Log.d("Error: ", e.getMessage());
         }
-        catch (IOException e) {
+        catch (IOException e)
+        {
             Log.d("Error: ", e.getMessage());
         }
 
@@ -171,19 +184,22 @@ public class CoronaNews extends AppCompatActivity {
     /*  CLASS   : GetFeedAsyncTask
      *  PURPOSE : AsyncTask to pull RSS Feed from RSS_URL.
      */
-    private class GetFeedAsyncTask extends AsyncTask<Void, Void, Boolean> {
+    private class GetFeedAsyncTask extends AsyncTask<Void, Void, Boolean>
+    {
 
         // URL to pull RSS feed from
         private static final String RSS_URL = "https://rss.cbc.ca/lineup/health.xml";
 
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute()
+        {
             swipeRefreshLayout.setRefreshing(true);
         }
 
         @Override
-        protected Boolean doInBackground(Void... voids) {
+        protected Boolean doInBackground(Void... voids)
+        {
             URL url = null;
 
             try {
@@ -193,7 +209,8 @@ public class CoronaNews extends AppCompatActivity {
                 byte[] data = new byte[256];
                 int endCheck = inputStream.read(data);
                 String xmlString = new String();
-                while(endCheck != -1) {
+                while(endCheck != -1)
+                {
                     //do something with data...
                     String tmpByteStr = new String(data);
 
@@ -206,11 +223,13 @@ public class CoronaNews extends AppCompatActivity {
 
                 RSSFeedModelList = parseFeed(xmlString);
             }
-            catch (MalformedURLException e) {
+            catch (MalformedURLException e)
+            {
                 Log.e("MalformedURLException ", e.getMessage());
                 return false;
             }
-            catch (IOException e) {
+            catch (IOException e)
+            {
                 Log.e("IOException ", e.getMessage());
                 return false;
             }
@@ -220,15 +239,19 @@ public class CoronaNews extends AppCompatActivity {
 
 
         @Override
-        protected void onPostExecute(Boolean success) {
+        protected void onPostExecute(Boolean success)
+        {
             swipeRefreshLayout.setRefreshing(false);
 
-            if (success) {
+            if (success)
+            {
                 // Fill RecyclerView
                 //rvRSS.setAdapter(new RSSFeedListAdapter(RSSFeedModelList));
                 lvRSS.setAdapter(new ArrayAdapter<RSSFeedModel>(getApplicationContext(),
                         android.R.layout.simple_list_item_1,RSSFeedModelList));
-            } else {
+            }
+            else
+            {
                 Toast.makeText(CoronaNews.this,
                         "Retrieval Error: COVID-19 has destroyed CBC News",
                         Toast.LENGTH_LONG).show();
