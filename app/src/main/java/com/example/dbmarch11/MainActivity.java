@@ -99,4 +99,9 @@ public class MainActivity extends AppCompatActivity
         super.onDestroy();
     }
 
+    public void goToCoronaNews(View view) {
+        Intent coronaNewsIntent = new Intent(this, CoronaNews.class);
+        startActivity(coronaNewsIntent);
+        finish();
+    }
 }

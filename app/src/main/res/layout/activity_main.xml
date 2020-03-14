@@ -30,6 +30,7 @@
         android:backgroundTint="@color/colorAccent"
         android:text="@string/lbl_rss"
         android:textColor="@color/cardview_light_background"
+        android:onClick="goToCoronaNews"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/bt_register"
         app:layout_constraintBottom_toBottomOf="parent" />
