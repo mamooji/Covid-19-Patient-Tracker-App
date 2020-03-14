@@ -11,20 +11,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-
+import java.util.Objects;
 
 /*  FILE        : CoronaNews.java
  *  PROJECT     : Mobile A2
@@ -72,8 +69,8 @@ public class CoronaNews extends AppCompatActivity
         this.lvRSS.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 String link = RSSFeedModelList.get(position).link;
                 Uri viewUri = Uri.parse(link);
 
@@ -112,7 +109,8 @@ public class CoronaNews extends AppCompatActivity
                 if(name == null)
                     continue;
 
-                if(eventType == XmlPullParser.END_TAG) {
+                if(eventType == XmlPullParser.END_TAG)
+                {
                     if(name.equalsIgnoreCase("item"))
                     {
                         isItem = false;
@@ -136,7 +134,6 @@ public class CoronaNews extends AppCompatActivity
                     result = xmlPullParser.getText();
                     xmlPullParser.nextTag();
                 }
-
                 if (name.equalsIgnoreCase("title"))
                 {
                     title = result;
@@ -164,15 +161,14 @@ public class CoronaNews extends AppCompatActivity
                     isItem = false;
                 }
             }
-
         }
         catch (XmlPullParserException e)
         {
-            Log.d("Error: ", e.getMessage());
+            Log.d("Error: ", Objects.requireNonNull(e.getMessage()));
         }
         catch (IOException e)
         {
-            Log.d("Error: ", e.getMessage());
+            Log.d("Error: ", Objects.requireNonNull(e.getMessage()));
         }
 
         return items;
@@ -225,12 +221,12 @@ public class CoronaNews extends AppCompatActivity
             }
             catch (MalformedURLException e)
             {
-                Log.e("MalformedURLException ", e.getMessage());
+                Log.e("MalformedURLException ", Objects.requireNonNull(e.getMessage()));
                 return false;
             }
             catch (IOException e)
             {
-                Log.e("IOException ", e.getMessage());
+                Log.e("IOException ", Objects.requireNonNull(e.getMessage()));
                 return false;
             }
 
