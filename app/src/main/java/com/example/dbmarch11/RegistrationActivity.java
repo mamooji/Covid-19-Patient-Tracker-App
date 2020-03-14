@@ -21,11 +21,14 @@ import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 public class RegistrationActivity extends AppCompatActivity
 {
 
+    //db instantiation/declarations
     UserDatabaseHelper dbHelper;
     SQLiteDatabase db;
 
+    //string variable declarations
     String name, address, phone, profession, gender, corona, ageRange;
 
+    //private xml fields
     private EditText etName, etAddress, etPhone, etProfession;
     private Spinner spGender;
     private Switch swCorona;

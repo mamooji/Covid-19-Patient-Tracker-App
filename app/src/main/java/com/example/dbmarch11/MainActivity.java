@@ -17,19 +17,23 @@ import java.util.List;
 //PURPOSE       : The landing page class for the application.  Handles
 //                filling the page with relevant data queried directly
 //                from the DB using the db helper class and recyclerview.
+//REFERENCE     : https://androidtuts4u.blogspot.com/2018/06/android-cardview-and-sqlite-example.html
 public class MainActivity extends AppCompatActivity
 {
 
 
-    //variable declarations
+    //Data base helper instantiations
     UserDatabaseHelper dbHelper;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter userAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-    Button btnRegister;
     List<UserDetails> userDetailsList;
     SQLiteDatabase db;
 
+    //View instantiations
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter userAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+
+    //button instantiations
+    Button btnRegister;
 
     //FUNCTION          : onCreate
     //PARAMETERS        : Bundle savedInstanceState
