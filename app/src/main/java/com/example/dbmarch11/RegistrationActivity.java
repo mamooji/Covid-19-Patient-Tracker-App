@@ -1,8 +1,10 @@
 package com.example.dbmarch11;
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,8 +13,18 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 //CLASS         : RegistrationActivity
 //PURPOSE       : Class to run code behind user registration.  Handles
@@ -20,6 +32,17 @@ import com.example.dbmarch11.UserDatabaseContract.UserDatabase;
 //                DB.
 public class RegistrationActivity extends AppCompatActivity
 {
+    //new shit
+    public static final String NAME_KEY = "name";
+    public static final String ADDRESS_KEY = "address";
+    public static final String PHONE_KEY = "phone";
+    public static final String PROF_KEY = "profession";
+    public static final String GENDER_KEY = "gender";
+    public static final String CORONA_KEY = "hasCorona";
+    public static final String AGE_KEY = "ageRange";
+    public static final String TAG = "user";
+
+    //private DocumentReference mDocRef = FirebaseFirestore.getInstance().document("sampleData/user");
 
     //db instantiation/declarations
     UserDatabaseHelper dbHelper;
@@ -67,6 +90,7 @@ public class RegistrationActivity extends AppCompatActivity
                 phone = etPhone.getText().toString();
                 profession = etProfession.getText().toString();
                 gender = spGender.getSelectedItem().toString();
+
                 if (swCorona.isChecked())
                 {
                     corona = swCorona.getTextOn().toString();
@@ -88,6 +112,31 @@ public class RegistrationActivity extends AppCompatActivity
                 values.put(UserDatabase.COLUMN_GENDER, gender);
                 values.put(UserDatabase.COLUMN_CORONA, corona);
                 values.put(UserDatabase.COLUMN_AGE, ageRange);
+
+                //new shit for firebase?
+                Map<String, Object> dataToSave = new HashMap<String, Object>();
+                dataToSave.put(NAME_KEY, name);
+                dataToSave.put(ADDRESS_KEY, address);
+                dataToSave.put(PHONE_KEY, phone);
+                dataToSave.put(PROF_KEY, profession);
+                dataToSave.put(GENDER_KEY, gender);
+                dataToSave.put(CORONA_KEY, corona);
+                dataToSave.put(AGE_KEY, ageRange);
+
+                DocumentReference mDocRef = FirebaseFirestore.getInstance().document("users/"+name);
+                mDocRef.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "Document has been saved");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Document was not saved");
+                    }
+                });
+
+
 
                 long rowId = db.insert(UserDatabase.TABLE_NAME, null, values);
 

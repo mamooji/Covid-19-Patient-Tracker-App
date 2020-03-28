@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "822175855603",
+    "firebase_url": "https://covid-19-patient-tracker.firebaseio.com",
+    "project_id": "covid-19-patient-tracker",
+    "storage_bucket": "covid-19-patient-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822175855603:android:609dc43b7e5eb878999886",
+        "android_client_info": {
+          "package_name": "com.example.dbmarch11"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822175855603-qpdqn9nvl336af4ilbe7k2kfpuru7dco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFFHAvyKXT480XAv3WfDAZjswMQ-3lulQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822175855603-qpdqn9nvl336af4ilbe7k2kfpuru7dco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
