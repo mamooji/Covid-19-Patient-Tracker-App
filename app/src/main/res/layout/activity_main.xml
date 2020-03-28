@@ -18,9 +18,21 @@
         android:backgroundTint="@color/colorAccent"
         android:text="@string/lbl_patients_reg"
         android:textColor="@color/dark_bg_light_primary_text"
-        app:layout_constraintLeft_toRightOf="@+id/bt_rss"
+        app:layout_constraintLeft_toRightOf="@+id/bt_maps"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/bt_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="goToMaps"
+        android:text="@string/lbl_maps"
+        android:textColor="@color/dark_bg_light_primary_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/bt_rss"
+        app:layout_constraintRight_toLeftOf="@+id/bt_register" />
 
     <Button
         android:id="@+id/bt_rss"
@@ -32,7 +44,7 @@
         android:textColor="@color/dark_bg_light_primary_text"
         android:onClick="goToCoronaNews"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/bt_register"
+        app:layout_constraintRight_toLeftOf="@+id/bt_maps"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView

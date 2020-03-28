@@ -32,7 +32,7 @@ import java.util.Map;
 //                DB.
 public class RegistrationActivity extends AppCompatActivity
 {
-    //new shit
+    //new shit for firebase
     public static final String NAME_KEY = "name";
     public static final String ADDRESS_KEY = "address";
     public static final String PHONE_KEY = "phone";

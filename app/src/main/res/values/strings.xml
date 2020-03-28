@@ -3,9 +3,10 @@
     <string name="app_name">Covid-19 Patient Tracker</string>
 
     <!--    Application labels for main activity-->
-    <string name="lbl_patients_reg">Patient Registration</string>
+    <string name="lbl_patients_reg">Register</string>
     <string name="lbl_rss">Virus News</string>
     <string name="lbl_patients">Registered Patients</string>
+    <string name="lbl_maps">Maps</string>
 
     <!--    Application labels for listItem/CardView-->
     <string name="lbl_name">Name</string>

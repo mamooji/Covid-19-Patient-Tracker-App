@@ -102,4 +102,10 @@ public class MainActivity extends AppCompatActivity
         startActivity(coronaNewsIntent);
         finish();
     }
+
+    public void goToMaps(View view) {
+        Intent mapsIntent = new Intent(this, mapsActivity.class);
+        startActivity(mapsIntent);
+        finish();
+    }
 }
