@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import java.lang.reflect.Array;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,6 +22,7 @@ public class Notifications extends Service {
     public static final String CHANNEL_ID = "Channel_ID";   //Channel ID needed for notification channels
                                                             //I HATE YOU GOOGLE
     private Timer timer;                                    //Timer for the random messages
+    private int notifyID = 0;                               //Used to have multiple notifications, represents ID of notification
 
     @Nullable
     @Override
@@ -92,8 +95,19 @@ public class Notifications extends Service {
     //DESCRIPTION       : Produces the notification message.
     //                      The message contents are chosen randomly from a pre-defined set of strings.
     private void doTheNotify() {
-        String title = "APP";
-        String content = "NOTIFY";
+        //Title is static, get this from strings.xml
+        String title = this.getResources().getString(R.string.notifyTitle);
+
+        //Get dynamic array of possible message content from strings.xml
+        String[] msgContent = this.getResources().getStringArray(R.array.notifyContent);
+        //Get length of this array to determine max rand int to generate
+        int numberMsg = msgContent.length;
+        //Generate a rand int between 0 and the array length
+        //This rand int will be used to select a message from the msgContent array
+        Random randMsgNum = new Random();
+        int randMsgContentPos = randMsgNum.nextInt(numberMsg);
+        //Select random message
+        String content = msgContent[randMsgContentPos];
 
         //Build a notification with Icon and Content
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
@@ -104,7 +118,9 @@ public class Notifications extends Service {
 
         //Use a notification manager to display the notification
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-        notificationManager.notify(1, builder.build());
+        notificationManager.notify(notifyID, builder.build());
+
+        notifyID++;
     }
 
     //FUNCTION          : createNotificationChannel
