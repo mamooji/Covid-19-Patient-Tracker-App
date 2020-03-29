@@ -21,6 +21,10 @@
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".UpdateActivity" />
         <activity android:name=".CoronaNews"></activity>
+        
+        <service android:name=".Notifications"
+            android:exported="false">
+        </service>
     </application>
 
 </manifest>
