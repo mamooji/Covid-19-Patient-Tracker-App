@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(userAdapter);
 
-        //JACOB !!! TEST FOR NOTIFICATION SERVICE
+        //Start the notification service
         notificationIntent = new Intent(this, Notifications.class);
         startService(notificationIntent);
     }
@@ -101,7 +101,8 @@ public class MainActivity extends AppCompatActivity
     protected void onDestroy()
     {
         db.close();
-        //stopService(notificationIntent);
+        //Stop notification service
+        stopService(notificationIntent);
         super.onDestroy();
     }
 
