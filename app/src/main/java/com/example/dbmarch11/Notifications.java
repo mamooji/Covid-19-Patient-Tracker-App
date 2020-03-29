@@ -26,6 +26,11 @@ public class Notifications extends Service {
         return null;
     }
 
+    //FUNCTION          : onCreate
+    //PARAMETERS        : none
+    //RETURNS           : void
+    //DESCRIPTION       : Creates the notification channel (if needed) and launches the timer.
+    //                    The timer is used to schedule random notifications every minute!
     @Override
     public void onCreate() {
         this.createNotificationChannel();
@@ -37,12 +42,22 @@ public class Notifications extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
+    //FUNCTION          : onDestroy
+    //PARAMETERS        : none
+    //RETURNS           : void
+    //DESCRIPTION       : Lets the service die, stops the timer.
     @Override
     public void onDestroy() {
         this.stopTimer();
         super.onDestroy();
     }
 
+    //FUNCTION          : startTimer
+    //PARAMETERS        : none
+    //RETURNS           : void
+    //DESCRIPTION       : Starts the timer. The timer is used to display random notifications every
+    //                      minute.
+    // THIS CODE WAS STOLEN FROM IGOR -> NewsReader project.
     private void startTimer() {
         TimerTask task = new TimerTask() {
 
@@ -58,12 +73,23 @@ public class Notifications extends Service {
         timer.schedule(task, delay, interval);
     }
 
+    //FUNCTION          : stopTimer
+    //PARAMETERS        : none
+    //RETURNS           : void
+    //DESCRIPTION       : Stops the timer. The timer is used to display random notifications every
+    //                      minute.
+    // THIS CODE WAS STOLEN FROM IGOR -> NewsReader project.
     private void stopTimer() {
         if (timer != null) {
             timer.cancel();
         }
     }
 
+    //FUNCTION          : doTheNotify
+    //PARAMETERS        : none
+    //RETURNS           : void
+    //DESCRIPTION       : Produces the notification message.
+    //                      The message contents are chosen randomly from a pre-defined set of strings.
     private void doTheNotify(){
         String title = "APP";
         String content = "NOTIFY";
@@ -80,6 +106,15 @@ public class Notifications extends Service {
         notificationManager.notify(1, builder.build());
     }
 
+    //FUNCTION          : createNotificationChannel
+    //PARAMETERS        : none
+    //RETURNS           : void
+    //DESCRIPTION       : Uses some dark voodoo magic to create a notification channel.
+    //                      Notification channels are only needed (and can only be created) past Android 8
+    //                      to protect against this, this function checks the running ver of Android.
+    //                      Notification channels are basically a tube for the notifications to go through before
+    //                      being displayed. Because Android dev isn't confusing enough Google decides to add more shit like this.
+    // Like much of my work this was STOLEN FROM -> https://developer.android.com/training/notify-user/build-notification
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
