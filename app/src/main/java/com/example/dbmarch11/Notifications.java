@@ -17,8 +17,9 @@ import java.util.TimerTask;
 
 public class Notifications extends Service {
 
-    public static final String CHANNEL_ID = "Channel_ID";
-    private Timer timer;
+    public static final String CHANNEL_ID = "Channel_ID";   //Channel ID needed for notification channels
+                                                            //I HATE YOU GOOGLE
+    private Timer timer;                                    //Timer for the random messages
 
     @Nullable
     @Override
@@ -90,7 +91,7 @@ public class Notifications extends Service {
     //RETURNS           : void
     //DESCRIPTION       : Produces the notification message.
     //                      The message contents are chosen randomly from a pre-defined set of strings.
-    private void doTheNotify(){
+    private void doTheNotify() {
         String title = "APP";
         String content = "NOTIFY";
 

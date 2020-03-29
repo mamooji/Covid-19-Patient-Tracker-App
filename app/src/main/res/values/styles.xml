@@ -10,8 +10,7 @@
         <item name="android:itemBackground">#FF424242</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
-    <string name="channel_name">COVID APP CHANNEL</string>
-    <string name="channel_description">Shows notifications</string>
+
 </resources>
 
 

@@ -40,5 +40,8 @@
     <!-- CoronaNews values -->
     <string name="lbl_corona_news">COVID-19 News</string>
 
+    <!-- Notification Service -->
+    <string name="channel_name">COVID APP CHANNEL</string>
+    <string name="channel_description">Shows notifications</string>
 </resources>
 
