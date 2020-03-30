@@ -1,5 +1,7 @@
 package com.example.dbmarch11;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         dbHelper = new UserDatabaseHelper(this);
         db = dbHelper.getReadableDatabase();
+
+        IntentFilter mTime = new IntentFilter(Intent.ACTION_TIME_TICK);
+        getApplicationContext().registerReceiver(new ConnectivityReceiver(),mTime);
 
         //view/button declarations
         recyclerView = (RecyclerView) findViewById(R.id.rv_users);
