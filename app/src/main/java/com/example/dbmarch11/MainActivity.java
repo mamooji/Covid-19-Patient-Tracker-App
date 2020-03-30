@@ -1,5 +1,4 @@
 package com.example.dbmarch11;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         db = dbHelper.getReadableDatabase();
 
         IntentFilter mTime = new IntentFilter(Intent.ACTION_TIME_TICK);
-        getApplicationContext().registerReceiver(new ConnectivityReceiver(),mTime);
+        getApplicationContext().registerReceiver(new MinuteChangeReceiver(),mTime);
 
         //view/button declarations
         recyclerView = (RecyclerView) findViewById(R.id.rv_users);

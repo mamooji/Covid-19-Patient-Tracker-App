@@ -2,6 +2,8 @@ package com.example.dbmarch11;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -147,6 +149,11 @@ public class RegistrationActivity extends AppCompatActivity
                     Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
+
+                    Intent updateIntent  = new Intent();
+                    sendBroadcast(updateIntent);
+
+                    Broadcast();
                 }
                 else
                 {
@@ -156,6 +163,23 @@ public class RegistrationActivity extends AppCompatActivity
         });
     }
 
+    //FUNCTION      : Broadcast
+    //PARAMETERS    : none
+    //RETURNS       : none
+    //DESCRIPTION   : sends a broadcast to inform the user that the
+    //                registration was added to the dataase
+    public void Broadcast(){
+
+        Intent broadcastIntent = new Intent("com.example.dbmarch11.ADDED");
+        PackageManager pm = getApplicationContext().getPackageManager();
+
+        java.util.List<ResolveInfo> broadcastReceivers  = pm.queryBroadcastReceivers(broadcastIntent,0);
+        for(ResolveInfo info : broadcastReceivers){
+            broadcastIntent.setClassName(info.activityInfo.packageName,info.activityInfo.name);
+            getApplicationContext().sendBroadcast(broadcastIntent);
+        }
+
+    }
     //FUNCTION      : onDestroy
     //PARAMETERS    : void
     //RETURNS       : void
