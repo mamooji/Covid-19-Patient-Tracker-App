@@ -25,7 +25,8 @@
             android:name="firebase_performance_logcat_enabled"
             android:value="true" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -35,6 +36,15 @@
         <activity android:name=".UpdateActivity" />
         <activity android:name=".CoronaNews" />
         <activity android:name=".mapsActivity"/>
+
+        <receiver android:name=".WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+                <meta-data
+                    android:name="android.appwidget.provider"
+                    android:resource="@xml/covid_widget_info" />
+        </receiver>
 
         <receiver android:name=".MinuteChangeReceiver">
             <intent-filter>
