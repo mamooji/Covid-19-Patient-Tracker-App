@@ -41,5 +41,17 @@
     <!-- CoronaNews values -->
     <string name="lbl_corona_news">COVID-19 News</string>
 
+    <!-- Notification Service -->
+    <string name="channel_name">COVID APP CHANNEL</string>
+    <string name="channel_description">Shows notifications</string>
+        <!-- Random Notification Messages -->
+    <array name="notifyContent">
+        <item>Oh god COVID just killed 90001 people</item>
+        <item>There is nothing to worry about!</item>
+        <item>You\'ve got M A I L</item>
+        <item>RIP Grandma</item>
+        <item>Toilet paper stocks hit all time high</item>
+    </array>
+    <string name="notifyTitle">COVID-19 NEWS</string>
 </resources>
 

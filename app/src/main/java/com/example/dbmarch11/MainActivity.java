@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity
     //button instantiations
     Button btnRegister;
 
+    //For notifications and notifications only
+    private Intent notificationIntent;
+
     //FUNCTION          : onCreate
     //PARAMETERS        : Bundle savedInstanceState
     //RETURNS           : void
@@ -93,11 +96,17 @@ public class MainActivity extends AppCompatActivity
         userAdapter = new UserDetailsAdapter(userDetailsList);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(userAdapter);
+
+        //Start the notification service
+        notificationIntent = new Intent(this, Notifications.class);
+        startService(notificationIntent);
     }
     @Override
     protected void onDestroy()
     {
         db.close();
+        //Stop notification service
+        stopService(notificationIntent);
         super.onDestroy();
     }
 

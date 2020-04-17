@@ -57,8 +57,10 @@
                 <action android:name="com.example.dbmarch11.ADDED"/>
             </intent-filter>
         </receiver>
-
-
-    </application>
+        
+        <service android:name=".Notifications"
+            android:exported="false">
+        </service>
+</application>
 
 </manifest>
