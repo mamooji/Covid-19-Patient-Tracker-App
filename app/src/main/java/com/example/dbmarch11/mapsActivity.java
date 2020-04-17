@@ -8,11 +8,20 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+//CLASS         : mapsActivity
+//PURPOSE       : The maps page class for the application.
+//                This class, creates the map fragment, as well as pinpoints the location
+//                to desplay on the map using long and lat coordinates. defaulted to conestoga campus location
 public class mapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     GoogleMap mapAPI;
     SupportMapFragment mapFragment;
 
+
+    //FUNCTION          : onCreate
+    //PARAMETERS        : Bundle savedInstanceState
+    //RETURNS           : void
+    //DESCRIPTION       : Handles the proper filling of the map view
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,6 +37,10 @@ public class mapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
+    //FUNCTION          : onMapReady
+    //PARAMETERS        : GoogleMap googleMap
+    //RETURNS           : void
+    //DESCRIPTION       : Handles setting the location pin for the map
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mapAPI = googleMap;

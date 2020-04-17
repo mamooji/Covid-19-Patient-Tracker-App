@@ -34,7 +34,8 @@ import java.util.Map;
 //                DB.
 public class RegistrationActivity extends AppCompatActivity
 {
-    //new shit for firebase
+    //new code for firebase testing
+    //testing out the firebase cloud firestore
     public static final String NAME_KEY = "name";
     public static final String ADDRESS_KEY = "address";
     public static final String PHONE_KEY = "phone";
